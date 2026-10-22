@@ -26,21 +26,28 @@ $hookRx   = '(?s)(\r?\n)?# >>> abyss-tide >>>.*?# <<< abyss-tide <<<(\r?\n)?'
 $hook = @'
 # >>> abyss-tide >>>
 # Avisa a Abyss Tide (agua de Windows Terminal) si el ultimo comando fallo. Lo quita: install.ps1 -Uninstall
-if (-not (Test-Path variable:global:__AbyssTidePrompt)) {
-    $global:__AbyssTidePrompt = $function:prompt
-    function global:prompt {
-        $abyssOk = $?
-        try {
-            $h = Get-History -Count 1
-            if ($h -and $h.Id -ne $global:__AbyssTideLastId) {
-                $global:__AbyssTideLastId = $h.Id
-                $state = 'ok'; if (-not $abyssOk) { $state = 'error' }
-                [IO.File]::WriteAllText((Join-Path $env:LOCALAPPDATA 'AbyssTide\signal.txt'), $state)
-            }
-        } catch { }
-        if (-not $abyssOk) { Write-Error '' -ErrorAction Ignore }   # conserva $? para tu prompt original
-        & $global:__AbyssTidePrompt
+# Envuelve el prompt y, si oh-my-posh/starship/etc. lo reemplazan despues, lo vuelve a envolver.
+if (-not (Test-Path variable:global:__AbyssTideWrap)) {
+    $global:__AbyssTideWrap = {
+        if ("$function:prompt" -match '__AbyssTideMarker') { return }
+        $global:__AbyssTidePrompt = $function:prompt
+        $function:global:prompt = {
+            # __AbyssTideMarker
+            $abyssOk = $?
+            try {
+                $h = Get-History -Count 1
+                if ($h -and $h.Id -ne $global:__AbyssTideLastId) {
+                    $global:__AbyssTideLastId = $h.Id
+                    $state = 'ok'; if (-not $abyssOk) { $state = 'error' }
+                    [IO.File]::WriteAllText((Join-Path $env:LOCALAPPDATA 'AbyssTide\signal.txt'), $state)
+                }
+            } catch { }
+            if (-not $abyssOk) { Write-Error '' -ErrorAction Ignore }   # conserva $? para tu prompt original
+            & $global:__AbyssTidePrompt
+        }
     }
+    & $global:__AbyssTideWrap
+    $null = Register-EngineEvent -SourceIdentifier PowerShell.OnIdle -Action { & $global:__AbyssTideWrap }
 }
 # <<< abyss-tide <<<
 '@

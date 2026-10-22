@@ -1648,6 +1648,11 @@ namespace AbyssTide
             menu.Items.Add(Choice("Modo foco (atenuar al escribir)", delegate { return cfg.FocusMode; }, delegate { cfg.FocusMode = !cfg.FocusMode; EnsureHook(); }));
             menu.Items.Add(Choice("Modo eco", delegate { return cfg.EcoMode; }, delegate { cfg.EcoMode = !cfg.EcoMode; }));
             menu.Items.Add(new ToolStripSeparator());
+            menu.Items.Add("Probar: comando fallido", null, delegate
+            {
+                foreach (Overlay o in overlays.Values) o.OnSignal("error");
+                if (!File.Exists(signalPath)) Notify("El agua reacciona, pero el hook del prompt aún no ha enviado ninguna señal. Reinstala con install.ps1 y abre una pestaña nueva.");
+            });
             menu.Items.Add("Guardar estos ajustes", null, delegate { SaveConfig(); });
             menu.Items.Add("Abrir configuración", null, delegate
             {
