@@ -230,46 +230,6 @@ Fragments cannot include window themes. If you want a matching tab bar, paste th
 ]
 ```
 
-## 🛟 Common issues
-
-<details>
-<summary><b>The water doesn't turn red when a command fails</b></summary>
-
-<br>
-
-1. Use **Test: failed command** in the system tray menu. If the water turns red, the engine is working and the hook is the problem.
-2. Open a **new tab**: tabs that were already open don't load the hook.
-3. Run `Get-EventSubscriber`; `PowerShell.OnIdle` should appear. If it doesn't, run `install.ps1` again.
-
-</details>
-
-<details>
-<summary><b>The water is misaligned or covers the tabs</b></summary>
-
-<br>
-
-Adjust `TopInsetPx` in the config to match the height of your tab bar, measured at 100% scaling. The change applies when you save.
-
-</details>
-
-<details>
-<summary><b>The text is hard to read</b></summary>
-
-<br>
-
-Increase `BackgroundAlpha` (for example, to `0.75`), lower `WaterAlpha`, or enable **Focus mode** to dim the water while you type.
-
-</details>
-
-<details>
-<summary><b>I'd rather not have anything running in the background</b></summary>
-
-<br>
-
-Use the **PowerShell · Abyss Tide (shader only)** profile: it has shader-animated water, but no interaction or fish.
-
-</details>
-
 ---
 
 <div align="center">
