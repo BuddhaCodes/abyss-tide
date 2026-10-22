@@ -1,41 +1,54 @@
 {
-  "_info": "Edita y reinicia Abyss Tide (icono de la bandeja > Salir, y vuelve a abrirlo). Claves que empiezan con _ se ignoran.",
+  "_info": "Los cambios se aplican solos al guardar este archivo. Las claves que empiezan con _ son comentarios.",
+
+  "Palette": "abyss",
+  "_Palette": "abyss, tropical, daynight (cambia con la hora), lava, toxic, matrix, synthwave o custom (usa los colores de abajo)",
 
   "FillLevel": 0.36,
-  "_FillLevel": "Fracción de la ventana llena de agua (0.05 - 0.9)",
-
   "MoveSensitivity": 1.0,
-  "_MoveSensitivity": "Cuánto reacciona al mover la ventana. 2.0 = muy salpicón, 0.4 = tranquilo",
-
   "Damping": 0.9,
-  "_Damping": "Qué tan rápido se calma el oleaje",
+  "Gravity": 2600,
+  "TiltAmount": 0.05,
+  "_Agua": "FillLevel = cuánta agua (0.05 - 0.9). MoveSensitivity: 2 = muy salpicón, 0.4 = tranquilo. Damping = qué tan rápido se calma. Gravity alta = olas rápidas y bajas. TiltAmount = cuánto se inclina según dónde esté la ventana en la pantalla",
 
   "SprayAmount": 1.0,
   "IdleDrips": 0.5,
-  "_IdleDrips": "Gotas por segundo que caen cuando la ventana está quieta (0 = ninguna)",
+  "_Gotas": "Salpicaduras y gotas por segundo cuando la ventana está quieta (0 = ninguna)",
 
-  "Gravity": 2600,
-  "_Gravity": "Más alto = olas más rápidas y bajas",
+  "Fish": 4,
+  "Jellyfish": true,
+  "Seafloor": true,
+  "_Vida": "Peces por ventana, medusa, y arena con algas en el fondo",
+
+  "TypingDrops": true,
+  "MouseRipples": true,
+  "ShellSignals": true,
+  "FocusMode": false,
+  "FocusDim": 0.35,
+  "FocusDelay": 2.5,
+  "_Interaccion": "Gotas al escribir (Enter salpica), ondas con el ratón, agua roja cuando un comando falla (necesita el hook del prompt que instala install.ps1), y modo foco: atenúa el agua mientras escribes",
+
+  "CharMode": "sea",
+  "BackgroundAlpha": 0.62,
+  "WaterAlpha": 0.8,
+  "_Aspecto": "CharMode: sea = mar de caracteres, ramp = puntos por densidad. BackgroundAlpha = opacidad del fondo detrás del texto",
 
   "BackgroundColor": "#04101A",
-  "BackgroundAlpha": 0.62,
-  "_BackgroundAlpha": "Opacidad del fondo detrás del texto (0 = invisible, 1 = sólido)",
-
   "SurfaceColor": "#9BF0FF",
   "DeepColor": "#1A5C9C",
   "FoamColor": "#FFFFFF",
-  "WaterAlpha": 0.8,
-
-  "CharMode": "sea",
-  "_CharMode": "sea = mar de caracteres que cambian con el oleaje; ramp = el estilo anterior de puntos",
   "SeaChars": "~=+*:;-<>/\\|(){}[]#%&$@?!^01234567890abcdefghijklmnopqrstuvwxyz≈",
   "SurfaceChars": "~≈~-^≈~=",
-  "_SeaChars": "Pon los caracteres que quieras: katakana, binario 01, emojis de texto…",
+  "_Custom": "Solo con Palette = custom. Prueba SeaChars \"01\" para binario",
+
+  "EcoMode": true,
+  "EcoFps": 15,
+  "Fps": 60,
+  "_Rendimiento": "El modo eco baja a EcoFps cuando el agua está en calma o la batería está por debajo del 25%",
 
   "FontFamily": "Cascadia Mono",
   "FontPx": 14,
-  "Fps": 60,
-
   "TopInsetPx": 40,
-  "_TopInsetPx": "Alto de la barra de pestañas a 100% de escala; el agua empieza debajo"
+  "WindowClass": "CASCADIA_HOSTING_WINDOW_CLASS",
+  "_Ventana": "Tamaño de los caracteres del agua y alto de la barra de pestañas (a 100% de escala); el agua empieza debajo"
 }
