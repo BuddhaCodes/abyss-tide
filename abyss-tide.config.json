@@ -26,6 +26,12 @@
   "FoamColor": "#FFFFFF",
   "WaterAlpha": 0.8,
 
+  "CharMode": "sea",
+  "_CharMode": "sea = mar de caracteres que cambian con el oleaje; ramp = el estilo anterior de puntos",
+  "SeaChars": "~=+*:;-<>/\\|(){}[]#%&$@?!^01234567890abcdefghijklmnopqrstuvwxyz≈",
+  "SurfaceChars": "~≈~-^≈~=",
+  "_SeaChars": "Pon los caracteres que quieras: katakana, binario 01, emojis de texto…",
+
   "FontFamily": "Cascadia Mono",
   "FontPx": 14,
   "Fps": 60,

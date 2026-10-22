@@ -35,6 +35,9 @@ namespace AbyssTide
         public double WaterAlpha = 0.80;         // opacidad de los caracteres del agua
         public double TopInsetPx = 40;           // alto de la barra de pestañas (px a 96 dpi)
         public string WindowClass = "CASCADIA_HOSTING_WINDOW_CLASS";
+        public string CharMode = "sea";          // "sea" = mar de caracteres, "ramp" = puntos por densidad
+        public string SeaChars = "~=+*:;-<>/\\|(){}[]#%&$@?!^01234567890abcdefghijklmnopqrstuvwxyz≈";
+        public string SurfaceChars = "~≈~-^≈~=";
     }
 
     internal struct Rgb
@@ -74,7 +77,9 @@ namespace AbyssTide
     {
         public int Cols, Rows;
         public double CellW, CellH, Width, Height;
-        double[] h, u, flux, hPrev, rise, foam, tmp;
+        double[] h, u, flux, hPrev, rise, foam, tmp, clock;
+        bool sea;
+        string seaChars, surfChars;
         double targetVolume;
         readonly List<Particle> parts = new List<Particle>();
         readonly Random rng = new Random();
@@ -92,6 +97,9 @@ namespace AbyssTide
             surface = Rgb.Parse(cfg.SurfaceColor, new Rgb(0.6f, 0.94f, 1f));
             deep = Rgb.Parse(cfg.DeepColor, new Rgb(0.06f, 0.25f, 0.45f));
             foamC = Rgb.Parse(cfg.FoamColor, new Rgb(1, 1, 1));
+            sea = !string.Equals(cfg.CharMode, "ramp", StringComparison.OrdinalIgnoreCase);
+            seaChars = string.IsNullOrEmpty(cfg.SeaChars) ? "~=+*:;-#%" : cfg.SeaChars;
+            surfChars = string.IsNullOrEmpty(cfg.SurfaceChars) ? "~-^" : cfg.SurfaceChars;
             Resize(width, height, cellW, cellH);
         }
 
@@ -121,10 +129,22 @@ namespace AbyssTide
             Width = Cols * cellW; Height = Rows * cellH;
             h = nh;
             u = new double[Cols + 1]; flux = new double[Cols + 1]; tmp = new double[Cols + 1];
-            hPrev = new double[Cols]; rise = new double[Cols]; foam = new double[Cols];
+            hPrev = new double[Cols]; rise = new double[Cols]; foam = new double[Cols]; clock = new double[Cols];
             targetVolume = fill * Height * Cols;
             int n = Cols * Rows;
             Ch = new char[n]; R = new float[n]; G = new float[n]; B = new float[n]; A = new float[n]; Tint = new float[n];
+        }
+
+        static uint Hash(int a, int b, int c)
+        {
+            unchecked
+            {
+                uint x = (uint)a * 374761393u + (uint)b * 668265263u + (uint)c * 2246822519u;
+                x = (x ^ (x >> 13)) * 1274126177u;
+                x ^= x >> 16;
+                x *= 2654435761u;
+                return x ^ (x >> 15);
+            }
         }
 
         static int Clamp(int v, int lo, int hi) { return v < lo ? lo : (v > hi ? hi : v); }
@@ -196,6 +216,7 @@ namespace AbyssTide
                 double slope = Math.Abs(h[Math.Min(i + 1, Cols - 1)] - h[Math.Max(i - 1, 0)]) / (2 * dx);
                 foam[i] += dt * (Math.Max(0, Math.Abs(rise[i]) - 120) / 220 + Math.Max(0, slope - 0.6) * 2.5);
                 foam[i] *= Math.Exp(-1.6 * dt);
+                clock[i] += dt * (1.2 + Math.Abs(0.5 * (u[i] + u[i + 1])) / 60 + foam[i] * 8);
                 if (foam[i] > 1) foam[i] = 1;
             }
 
@@ -339,13 +360,30 @@ namespace AbyssTide
                         double tex = 0.5 + 0.35 * wave + 0.15 * wave2;
                         double near = Math.Exp(-d * 0.22);
                         double v = (0.32 + 0.68 * near) * (0.3 + 0.7 * tex) + (d < 1.6 ? fo * 0.35 : 0);
-                        int ri = (int)(v * Ramp.Length);
-                        if (ri < 0) ri = 0; if (ri >= Ramp.Length) ri = Ramp.Length - 1;
-                        Ch[idx] = Ramp[ri];
                         Rgb col = Rgb.Lerp(deep, surface, (float)(0.15 + near * 0.75 + 0.1 * tex));
                         if (d < 1.6) col = Rgb.Lerp(col, foamC, fo * 0.5f);
+                        if (sea)
+                        {
+                            // mar de caracteres: cada celda tiene su símbolo y lo cambia a su ritmo;
+                            // donde el agua se agita, cambian más rápido
+                            uint hs = Hash(i, r, 7);
+                            double speed = 0.45 + (hs & 1023) / 1023.0;
+                            long tick = (long)Math.Floor(clock[i] * speed + (hs >> 10) % 97);
+                            string pool = d < 1.2 ? surfChars : seaChars;
+                            Ch[idx] = pool[(int)(Hash(i, r, (int)tick) % (uint)pool.Length)];
+                            // destellos sueltos
+                            if ((Hash(i, r, (int)(tick * 3 + 1)) & 255) < 4) { col = Rgb.Lerp(col, foamC, 0.7f); v += 0.6; }
+                            col = Rgb.Lerp(col, surface, 0.2f);
+                            A[idx] = wa * (float)(0.45 + 0.55 * Math.Min(1, v));
+                        }
+                        else
+                        {
+                            int ri = (int)(v * Ramp.Length);
+                            if (ri < 0) ri = 0; if (ri >= Ramp.Length) ri = Ramp.Length - 1;
+                            Ch[idx] = Ramp[ri];
+                            A[idx] = wa * (float)(0.5 + 0.5 * Math.Min(1, v));
+                        }
                         R[idx] = col.R; G[idx] = col.G; B[idx] = col.B;
-                        A[idx] = wa * (float)(0.5 + 0.5 * Math.Min(1, v));
                         Tint[idx] = (float)(0.24 + 0.16 * near);
                     }
                     else

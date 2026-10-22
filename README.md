@@ -1,6 +1,6 @@
 # Abyss Tide 🌊
 
-Tema para Windows Terminal: fondo semitransparente con agua ASCII en 2D (vista lateral, como agua en una pecera) que **se mueve cuando mueves la ventana**. Si arrastras la terminal y la sueltas de golpe, el agua choca contra la pared y salpica. Si la sacudes, hace olas. Si das un tirón hacia abajo, salta.
+Tema para Windows Terminal: fondo semitransparente con agua ASCII en 2D (vista lateral, como agua en una pecera) que **se mueve cuando mueves la ventana**. Si arrastras la terminal y la sueltas de golpe, el agua choca contra la pared y salpica. Si la sacudes, hace olas. Si das un tirón hacia abajo, salta. El agua es un mar de caracteres que cambian más rápido donde el agua está agitada.
 
 ![Vista previa: arrastre, frenazo, sacudida y tirón hacia abajo](preview.gif)
 
@@ -56,6 +56,8 @@ Edita `%LOCALAPPDATA%\AbyssTide\abyss-tide.config.json`. Luego sal desde el icon
 | `SprayAmount`, `IdleDrips` | salpicaduras y gotas cuando está quieta |
 | `BackgroundAlpha` | opacidad del fondo (sube si cuesta leer el texto) |
 | `SurfaceColor`, `DeepColor`, `FoamColor`, `WaterAlpha` | colores del agua |
+| `CharMode` | `sea` (mar de caracteres, por defecto) o `ramp` (puntos por densidad) |
+| `SeaChars`, `SurfaceChars` | caracteres del interior y de la superficie; prueba `"01"` o katakana `"ｱｲｳｴｵｶｷｸｹｺ"` |
 | `FontPx`, `FontFamily` | tamaño y fuente de los caracteres del agua |
 | `TopInsetPx` | alto de la barra de pestañas; el agua empieza debajo |
 
