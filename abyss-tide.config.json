@@ -1,0 +1,35 @@
+{
+  "_info": "Edita y reinicia Abyss Tide (icono de la bandeja > Salir, y vuelve a abrirlo). Claves que empiezan con _ se ignoran.",
+
+  "FillLevel": 0.36,
+  "_FillLevel": "Fracción de la ventana llena de agua (0.05 - 0.9)",
+
+  "MoveSensitivity": 1.0,
+  "_MoveSensitivity": "Cuánto reacciona al mover la ventana. 2.0 = muy salpicón, 0.4 = tranquilo",
+
+  "Damping": 0.9,
+  "_Damping": "Qué tan rápido se calma el oleaje",
+
+  "SprayAmount": 1.0,
+  "IdleDrips": 0.5,
+  "_IdleDrips": "Gotas por segundo que caen cuando la ventana está quieta (0 = ninguna)",
+
+  "Gravity": 2600,
+  "_Gravity": "Más alto = olas más rápidas y bajas",
+
+  "BackgroundColor": "#04101A",
+  "BackgroundAlpha": 0.62,
+  "_BackgroundAlpha": "Opacidad del fondo detrás del texto (0 = invisible, 1 = sólido)",
+
+  "SurfaceColor": "#9BF0FF",
+  "DeepColor": "#1A5C9C",
+  "FoamColor": "#FFFFFF",
+  "WaterAlpha": 0.8,
+
+  "FontFamily": "Cascadia Mono",
+  "FontPx": 14,
+  "Fps": 60,
+
+  "TopInsetPx": 40,
+  "_TopInsetPx": "Alto de la barra de pestañas a 100% de escala; el agua empieza debajo"
+}

@@ -1,0 +1,52 @@
+{
+  "schemes": [
+    {
+      "name": "Abyss Tide",
+      "background": "#04101A",
+      "foreground": "#CFE8F2",
+      "cursorColor": "#9BF0FF",
+      "selectionBackground": "#1A5C9C",
+      "black": "#0B1A26",
+      "red": "#FF6B7F",
+      "green": "#5EE6B0",
+      "yellow": "#F2D17A",
+      "blue": "#4FA3F7",
+      "purple": "#B39DFF",
+      "cyan": "#5FD7F0",
+      "white": "#CFE8F2",
+      "brightBlack": "#4A6A80",
+      "brightRed": "#FF8FA0",
+      "brightGreen": "#8CF5CB",
+      "brightYellow": "#FFE6A3",
+      "brightBlue": "#7FC1FF",
+      "brightPurple": "#CDBEFF",
+      "brightCyan": "#9BF0FF",
+      "brightWhite": "#FFFFFF"
+    }
+  ],
+  "profiles": [
+    {
+      "guid": "{6f3c2a9e-1b7d-4c5e-9a2f-8d4b1e7c3a51}",
+      "name": "PowerShell · Abyss Tide",
+      "commandline": "powershell.exe -NoLogo",
+      "colorScheme": "Abyss Tide",
+      "useAcrylic": false,
+      "opacity": 20,
+      "font": { "face": "Cascadia Mono", "size": 12 },
+      "padding": "12",
+      "cursorShape": "filledBox"
+    },
+    {
+      "guid": "{a1d4e7b2-3c9f-4e8a-b6d5-2f7c9e1a4b63}",
+      "name": "PowerShell · Abyss Tide (solo shader)",
+      "commandline": "powershell.exe -NoLogo",
+      "colorScheme": "Abyss Tide",
+      "useAcrylic": false,
+      "opacity": 85,
+      "font": { "face": "Cascadia Mono", "size": 12 },
+      "padding": "12",
+      "cursorShape": "filledBox",
+      "experimental.pixelShaderPath": "__SHADER_PATH__"
+    }
+  ]
+}

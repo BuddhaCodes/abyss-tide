@@ -1,0 +1,5 @@
+*.ps1  text eol=crlf
+*.cs   text eol=crlf
+*.hlsl text eol=crlf
+*.json text eol=crlf
+*.gif  binary
