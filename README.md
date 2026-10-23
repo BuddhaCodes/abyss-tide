@@ -1,94 +1,94 @@
 <div align="center">
 
-<img src="docs/banner.gif" alt="Abyss Tide: agua ASCII viva para Windows Terminal" width="100%">
+<img src="docs/banner.gif" alt="Abyss Tide: living ASCII water for Windows Terminal" width="100%">
 
 <br>
 
-**Un fondo para Windows Terminal hecho de agua ASCII que se mueve contigo.**<br>
-Arrastra la ventana y el agua choca. Escribe y caen gotas. Falla un comando y el mar se tiñe de rojo.
+**A Windows Terminal background made of ASCII water that moves with you.**<br>
+Drag the window and the water crashes. Type and droplets fall. Run a command that fails and the sea turns red.
 
 <br>
 
 ![Windows Terminal](https://img.shields.io/badge/Windows%20Terminal-1.12%2B-0b2133?style=for-the-badge&logo=windowsterminal&logoColor=9BF0FF)
 ![PowerShell](https://img.shields.io/badge/PowerShell-5.1%20%7C%207-1a5c9c?style=for-the-badge&logoColor=white)
-![Sin dependencias](https://img.shields.io/badge/instalar-nada%20extra-1ea7cf?style=for-the-badge)
+![No dependencies](https://img.shields.io/badge/install-nothing%20extra-1ea7cf?style=for-the-badge)
 
-[Instalar](#instalar) · [Qué hace](#que-hace) · [Paletas](#paletas) · [Ajustes](#ajustes) · [Cómo funciona](#como-funciona)
+[Install](#install) · [What it does](#what-it-does) · [Palettes](#palettes) · [Settings](#settings) · [How it works](#how-it-works)
 
 </div>
 
 ---
 
-<a id="que-hace"></a>
+<a id="what-it-does"></a>
 
-## 🌊 Qué hace
+## 🌊 What it does
 
 <table>
 <tr>
 <td width="50%" valign="top">
 
-### Muévela
-Arrastra la terminal y suéltala de golpe: el agua se queda atrás, choca contra la pared y salpica. Si la sacudes, hace olas. Con un tirón hacia abajo, el agua salta.
+### Move it
+Drag the terminal and suddenly release it: the water lags behind, crashes into the wall, and splashes. Shake it to make waves. Give it a sharp pull downward and the water jumps.
 
-<img src="docs/demo-drag.gif" alt="El agua choca al arrastrar la ventana" width="100%">
+<img src="docs/demo-drag.gif" alt="Water crashes when the window is dragged" width="100%">
 
 </td>
 <td width="50%" valign="top">
 
-### Escríbele
-Cada tecla deja caer una gota y Enter salpica. Si un comando **falla**, el agua se vuelve roja y se agita. Si sale bien, suben burbujas.
+### Type into it
+Every keystroke drops a droplet, and Enter makes a splash. If a command **fails**, the water turns red and churns. If it succeeds, bubbles rise.
 
-<img src="docs/demo-typing.gif" alt="Gotas al escribir y agua roja al fallar un comando" width="100%">
+<img src="docs/demo-typing.gif" alt="Droplets while typing and red water when a command fails" width="100%">
 
 </td>
 </tr>
 <tr>
 <td width="50%" valign="top">
 
-### Tócala
-Pasa el cursor por el agua y la arrastras. Los peces se asustan y huyen.
+### Touch it
+Move the cursor through the water and drag it around. The fish get startled and flee.
 
-<img src="docs/demo-mouse.gif" alt="El cursor mueve el agua" width="100%">
+<img src="docs/demo-mouse.gif" alt="The cursor moves the water" width="100%">
 
 </td>
 <td width="50%" valign="top">
 
-### Mírala vivir
-Es un mar de caracteres que cambian más rápido donde hay oleaje. Tiene peces `><>` `<°)))><`, una medusa `(@)`, algas `)(` y arena. Se inclina hacia el borde de la pantalla más cercano.
+### Watch it come alive
+It's a sea of characters that change faster where the waves are strongest. It has fish `><>` `<°)))><`, a jellyfish `(@)`, seaweed `)(`, and sand. It tilts toward the nearest edge of the screen.
 
-<img src="docs/demo-shake.gif" alt="Sacudida y salpicaduras" width="100%">
+<img src="docs/demo-shake.gif" alt="Shaking and splashes" width="100%">
 
 </td>
 </tr>
 </table>
 
 > [!NOTE]
-> Las animaciones son la simulación real (`AbyssTide.cs`) renderizada fuera de Windows. El texto de la terminal es de ejemplo.
+> The animations are the actual simulation (`AbyssTide.cs`) rendered outside Windows. The terminal text is just a mockup.
 
-<a id="paletas"></a>
+<a id="palettes"></a>
 
-## 🎨 Paletas
+## 🎨 Palettes
 
 <div align="center">
-<img src="docs/palettes.gif" alt="Abismo, Tropical, Lava, Tóxico, Matrix y Synthwave" width="640">
+<img src="docs/palettes.gif" alt="Abyss, Tropical, Lava, Toxic, Matrix, and Synthwave" width="640">
 </div>
 
-| | Paleta | |
+| | Palette | |
 |---|---|---|
-| 🌌 | **Abismo** | azul profundo (por defecto) |
-| 🏝️ | **Tropical** | turquesa claro |
-| 🌗 | **Día / noche** | pasa de Tropical a Abismo según la hora |
-| 🌋 | **Lava** | magma con chispas `^*%#` |
-| ☢️ | **Tóxico** | verde radiactivo con burbujas `oO0` |
-| 🟩 | **Matrix** | lluvia binaria `0101` |
-| 🌆 | **Synthwave** | rosa neón sobre violeta |
-| 🎛️ | **Personalizada** | tus colores y tus caracteres |
+| 🌌 | **Abyss** | deep blue (default) |
+| 🏝️ | **Tropical** | light turquoise |
+| 🌗 | **Day / night** | shifts from Tropical to Abyss depending on the time of day |
+| 🌋 | **Lava** | magma with sparks `^*%#` |
+| ☢️ | **Toxic** | radioactive green with bubbles `oO0` |
+| 🟩 | **Matrix** | binary rain `0101` |
+| 🌆 | **Synthwave** | neon pink on violet |
+| 🎛️ | **Custom** | your colors and characters |
 
-Se cambian desde el icono de la bandeja, sin reiniciar nada.
+Switch palettes from the system tray icon without restarting anything.
 
-<a id="instalar"></a>
+<a id="install"></a>
 
-## 📦 Instalar
+## 📦 Install
 
 ```powershell
 git clone https://github.com/BuddhaCodes/abyss-tide
@@ -96,127 +96,127 @@ cd abyss-tide
 powershell -ExecutionPolicy Bypass -File .\install.ps1
 ```
 
-Después, **reinicia Windows Terminal** y abre el perfil **PowerShell · Abyss Tide**. Si quieres usarlo siempre, márcalo como perfil predeterminado.
+Then **restart Windows Terminal** and open the **PowerShell · Abyss Tide** profile. If you want to use it all the time, set it as your default profile.
 
 <details>
-<summary><b>Qué hace el instalador</b></summary>
+<summary><b>What the installer does</b></summary>
 
 <br>
 
-- Copia todo a `%LOCALAPPDATA%\AbyssTide`. No necesita permisos de administrador.
-- Añade el esquema de color y dos perfiles mediante un [fragment](https://learn.microsoft.com/windows/terminal/json-fragment-extensions) de Windows Terminal, **sin tocar tu `settings.json`**.
-- Añade un pequeño hook al final de tu `profile.ps1`, tanto en Windows PowerShell como en PowerShell 7, para el agua roja. Funciona con oh-my-posh, Starship y cualquier otro prompt.
-- Crea un acceso directo en Inicio para que arranque con Windows.
-- Lo arranca.
+- Copies everything to `%LOCALAPPDATA%\AbyssTide`. No administrator privileges required.
+- Adds the color scheme and two profiles through a Windows Terminal [fragment](https://learn.microsoft.com/windows/terminal/json-fragment-extensions), **without touching your `settings.json`**.
+- Adds a small hook to the end of your `profile.ps1`, in both Windows PowerShell and PowerShell 7, to enable the red-water effect. Works with oh-my-posh, Starship, and any other prompt.
+- Creates a Startup shortcut so it launches with Windows.
+- Launches it.
 
-| Opción | Efecto |
+| Option | Effect |
 |---|---|
-| `-NoShellHook` | no toca tu perfil (sin agua roja al fallar un comando) |
-| `-NoAutostart` | no arranca con Windows |
-| `-Uninstall` | lo detiene y lo quita todo, incluido el hook |
+| `-NoShellHook` | leaves your profile untouched (no red water when a command fails) |
+| `-NoAutostart` | does not launch with Windows |
+| `-Uninstall` | stops it and removes everything, including the hook |
 
-Si prefieres PowerShell 7 en el perfil de la terminal, cambia su línea de comandos a `pwsh.exe`.
+If you prefer PowerShell 7 for the terminal profile, change its command line to `pwsh.exe`.
 
 </details>
 
-## 🖱️ Menú de la bandeja
+## 🖱️ System tray menu
 
-Haz clic derecho en el icono de la ola, junto al reloj:
+Right-click the wave icon next to the clock:
 
 ```
-Paleta              ▸  Abismo · Tropical · Día/noche · Lava · Tóxico · Matrix · Synthwave · Personalizada
-Sensibilidad        ▸  Baja · Normal · Alta · Caos
-Nivel del agua      ▸  Bajo · Medio · Alto · Desbordado
-Peces               ▸  Ninguno · Pocos · Normal · Banco
+Palette             ▸  Abyss · Tropical · Day/night · Lava · Toxic · Matrix · Synthwave · Custom
+Sensitivity         ▸  Low · Normal · High · Chaos
+Water level         ▸  Low · Medium · High · Overflowing
+Fish                ▸  None · Few · Normal · School
 ─────────────────
-✓ Gotas al escribir          ✓ Agua roja si un comando falla
-✓ Ondas con el ratón           Modo foco (atenuar al escribir)
-✓ Fondo marino               ✓ Modo eco
-✓ Medusa
+✓ Typing droplets           ✓ Red water when a command fails
+✓ Mouse ripples             Focus mode (dim while typing)
+✓ Seafloor                   ✓ Eco mode
+✓ Jellyfish
 ─────────────────
-Probar: comando fallido · Guardar estos ajustes · Abrir configuración · Pausar · Salir
+Test: failed command · Save these settings · Open settings · Pause · Exit
 ```
 
-<a id="ajustes"></a>
+<a id="settings"></a>
 
-## ⚙️ Ajustes
+## ⚙️ Settings
 
-Están en `%LOCALAPPDATA%\AbyssTide\abyss-tide.config.json`. **Los cambios se aplican solos al guardar el archivo.** Si tiene un error, aparece un aviso y se mantienen los ajustes anteriores.
+They are stored in `%LOCALAPPDATA%\AbyssTide\abyss-tide.config.json`. **Changes are applied automatically when you save the file.** If an error is found, a warning appears and the previous settings are kept.
 
 <details>
-<summary><b>Todas las opciones</b></summary>
+<summary><b>All options</b></summary>
 
 <br>
 
-| Clave | Efecto |
+| Key | Effect |
 |---|---|
 | `Palette` | `abyss` `tropical` `daynight` `lava` `toxic` `matrix` `synthwave` `custom` |
-| `MoveSensitivity` | `2.0` = salpica mucho · `0.4` = más calmado |
-| `FillLevel` | cuánta agua hay (`0.05`–`0.9`) |
-| `Damping`, `Gravity` | qué tan rápido se calma y qué tan rápidas son las olas |
-| `TiltAmount` | cuánto se inclina el agua según dónde esté la ventana en la pantalla |
-| `SprayAmount`, `IdleDrips` | salpicaduras y gotas por segundo con la ventana quieta |
-| `Fish`, `Jellyfish`, `Seafloor` | peces por ventana, medusa, arena y algas |
-| `TypingDrops`, `MouseRipples`, `ShellSignals` | reacciones al teclado, al ratón y a los comandos |
-| `FocusMode`, `FocusDim`, `FocusDelay` | atenúa el agua mientras escribes y la recupera tras unos segundos sin teclear |
-| `EcoMode`, `EcoFps` | baja los fps con el agua en calma o la batería por debajo del 25 % |
-| `CharMode` | `sea` (mar de caracteres) o `ramp` (puntos por densidad) |
-| `BackgroundAlpha`, `WaterAlpha` | opacidad del fondo y del agua (sube `BackgroundAlpha` si cuesta leer) |
-| `BackgroundColor` `SurfaceColor` `DeepColor` `FoamColor` | colores con `Palette: custom` |
-| `SeaChars`, `SurfaceChars` | caracteres con `Palette: custom`; prueba `"01"` |
-| `FontPx`, `FontFamily` | tamaño y fuente de los caracteres del agua |
-| `TopInsetPx` | alto de la barra de pestañas; el agua empieza debajo |
+| `MoveSensitivity` | `2.0` = lots of splashing · `0.4` = calmer |
+| `FillLevel` | how much water there is (`0.05`–`0.9`) |
+| `Damping`, `Gravity` | how quickly it settles and how fast the waves move |
+| `TiltAmount` | how much the water tilts depending on where the window is on the screen |
+| `SprayAmount`, `IdleDrips` | splashes and droplets per second while the window is still |
+| `Fish`, `Jellyfish`, `Seafloor` | fish per window, jellyfish, sand, and seaweed |
+| `TypingDrops`, `MouseRipples`, `ShellSignals` | reactions to the keyboard, mouse, and commands |
+| `FocusMode`, `FocusDim`, `FocusDelay` | dims the water while you type and restores it after a few seconds of inactivity |
+| `EcoMode`, `EcoFps` | lowers FPS when the water is calm or the battery is below 25% |
+| `CharMode` | `sea` (sea of characters) or `ramp` (dots based on density) |
+| `BackgroundAlpha`, `WaterAlpha` | background and water opacity (increase `BackgroundAlpha` if text is hard to read) |
+| `BackgroundColor` `SurfaceColor` `DeepColor` `FoamColor` | colors when using `Palette: custom` |
+| `SeaChars`, `SurfaceChars` | characters when using `Palette: custom`; try `"01"` |
+| `FontPx`, `FontFamily` | size and font of the water characters |
+| `TopInsetPx` | height of the tab bar; the water starts below it |
 
-La transparencia final combina dos cosas: el `opacity` del perfil en Windows Terminal y el `BackgroundAlpha` de la config.
+The final transparency combines two things: the profile's `opacity` in Windows Terminal and `BackgroundAlpha` in the config.
 
 </details>
 
-<a id="como-funciona"></a>
+<a id="how-it-works"></a>
 
-## 🔬 Cómo funciona
+## 🔬 How it works
 
-Los shaders de Windows Terminal no guardan estado entre fotogramas y no saben dónde está la ventana, así que un tema normal no puede reaccionar a nada. Abyss Tide pone el agua **detrás** de la terminal:
+Windows Terminal shaders don't preserve state between frames or know where the window is, so a normal theme can't react to anything. Abyss Tide places the water **behind** the terminal:
 
 ```mermaid
 flowchart LR
-    WT["Windows Terminal<br/><sub>opacity 20 %</sub>"] -- "posición, tamaño, foco" --> E
-    K["teclado · ratón"] --> E
-    P["hook del prompt<br/><sub>ok / error</sub>"] -- "signal.txt" --> E
-    E["Motor AbyssTide.cs<br/><sub>aguas someras 1D + partículas + peces</sub>"] --> L["Capa transparente<br/><sub>justo debajo de la terminal,<br/>no recibe clics</sub>"]
-    L -. "se ve a través del fondo" .-> WT
+    WT["Windows Terminal<br/><sub>opacity 20%</sub>"] -- "position, size, focus" --> E
+    K["keyboard · mouse"] --> E
+    P["prompt hook<br/><sub>ok / error</sub>"] -- "signal.txt" --> E
+    E["AbyssTide.cs engine<br/><sub>1D shallow-water simulation + particles + fish</sub>"] --> L["Transparent layer<br/><sub>just below the terminal,<br/>does not receive clicks</sub>"]
+    L -. "visible through the background" .-> WT
 ```
 
-- **Física:** son ecuaciones de aguas someras en el marco de referencia de la ventana. Acelerar la ventana genera una pseudo-fuerza opuesta; dejarla caer reduce la gravedad y el agua salta.
-- **Sin instalar nada:** Windows PowerShell 5.1 compila el motor la primera vez con el compilador que ya trae Windows. Después arranca al instante desde la DLL guardada en caché.
-- **Ligero:** el render es software puro y el modo eco baja a 15 fps cuando el agua está en calma.
-- **Robusto:** funciona con varias ventanas a la vez, monitores con distinto DPI, escritorios virtuales y ventanas minimizadas.
+- **Physics:** shallow-water equations are calculated in the window's reference frame. Accelerating the window creates an opposing pseudo-force; dropping it reduces gravity and the water jumps.
+- **No extra installation:** Windows PowerShell 5.1 compiles the engine the first time using the compiler already included with Windows. After that, it starts instantly from the cached DLL.
+- **Lightweight:** rendering is entirely software-based, and Eco mode drops to 15 FPS when the water is calm.
+- **Robust:** works with multiple windows at once, monitors with different DPI settings, virtual desktops, and minimized windows.
 
 <details>
-<summary><b>Archivos del repo</b></summary>
+<summary><b>Repository files</b></summary>
 
 <br>
 
-| Archivo | Qué es |
+| File | Description |
 |---|---|
-| `AbyssTide.cs` | motor: simulación, vida marina, capa transparente, menú de bandeja |
-| `abyss-tide.ps1` | lanzador: compila una vez, guarda la DLL y la ejecuta |
-| `abyss-tide.config.json` | ajustes por defecto |
-| `abyss-tide.fragment.json` | esquema de color y perfiles para Windows Terminal |
-| `abyss-tide.hlsl` | shader de respaldo: agua animada sin interacción y sin proceso en segundo plano |
-| `install.ps1` | instalador y desinstalador |
-| `docs/` | animaciones de este README |
+| `AbyssTide.cs` | engine: simulation, marine life, transparent layer, system tray menu |
+| `abyss-tide.ps1` | launcher: compiles once, saves the DLL, and runs it |
+| `abyss-tide.config.json` | default settings |
+| `abyss-tide.fragment.json` | color scheme and profiles for Windows Terminal |
+| `abyss-tide.hlsl` | fallback shader: animated water without interaction or a background process |
+| `install.ps1` | installer and uninstaller |
+| `docs/` | animations used in this README |
 
 </details>
 
-## 🔒 Privacidad
+## 🔒 Privacy
 
-"Gotas al escribir" y el modo foco usan un hook de teclado de bajo nivel. **Solo cuenta pulsaciones cuando una ventana de Windows Terminal está en primer plano.** Solo distingue Enter y Retroceso, y no guarda ni envía ninguna tecla. Si desactivas ambas opciones, el hook se quita al momento. Algunos antivirus avisan de este tipo de hook.
+"Typing droplets" and Focus mode use a low-level keyboard hook. **It only counts keystrokes when a Windows Terminal window is in the foreground.** It only detects Enter and Backspace, and it does not save or send any keystrokes. If you disable both options, the hook is removed immediately. Some antivirus software may flag this type of hook.
 
-En terminales abiertas como administrador, Windows no permite leer el teclado desde un proceso normal, así que ahí no caen gotas al escribir. El resto funciona igual.
+In terminals opened as administrator, Windows does not allow a normal process to read keyboard input, so typing droplets won't appear there. Everything else works the same.
 
-## 🧩 Extra: barra de pestañas a juego
+## 🧩 Bonus: matching tab bar
 
-Los fragments no pueden traer temas de ventana. Si quieres la barra a juego, pega esto en tu `settings.json`:
+Fragments cannot include window themes. If you want a matching tab bar, paste this into your `settings.json`:
 
 ```jsonc
 "theme": "Abyss Tide",
@@ -230,48 +230,48 @@ Los fragments no pueden traer temas de ventana. Si quieres la barra a juego, peg
 ]
 ```
 
-## 🛟 Problemas frecuentes
+## 🛟 Common issues
 
 <details>
-<summary><b>El agua no se pone roja cuando falla un comando</b></summary>
+<summary><b>The water doesn't turn red when a command fails</b></summary>
 
 <br>
 
-1. Usa **Probar: comando fallido** en el menú de la bandeja. Si el agua se pone roja, el motor funciona y el problema es el hook.
-2. Abre una **pestaña nueva**: las pestañas que ya estaban abiertas no cargan el hook.
-3. Ejecuta `Get-EventSubscriber`; debería aparecer `PowerShell.OnIdle`. Si no aparece, vuelve a ejecutar `install.ps1`.
+1. Use **Test: failed command** in the system tray menu. If the water turns red, the engine is working and the hook is the problem.
+2. Open a **new tab**: tabs that were already open don't load the hook.
+3. Run `Get-EventSubscriber`; `PowerShell.OnIdle` should appear. If it doesn't, run `install.ps1` again.
 
 </details>
 
 <details>
-<summary><b>El agua queda desalineada o tapa las pestañas</b></summary>
+<summary><b>The water is misaligned or covers the tabs</b></summary>
 
 <br>
 
-Ajusta `TopInsetPx` en la config al alto de tu barra de pestañas, medido a 100 % de escala. Se aplica al guardar.
+Adjust `TopInsetPx` in the config to match the height of your tab bar, measured at 100% scaling. The change applies when you save.
 
 </details>
 
 <details>
-<summary><b>Cuesta leer el texto</b></summary>
+<summary><b>The text is hard to read</b></summary>
 
 <br>
 
-Sube `BackgroundAlpha` (por ejemplo a `0.75`), baja `WaterAlpha`, o activa el **modo foco** para que el agua se atenúe mientras escribes.
+Increase `BackgroundAlpha` (for example, to `0.75`), lower `WaterAlpha`, or enable **Focus mode** to dim the water while you type.
 
 </details>
 
 <details>
-<summary><b>Prefiero no tener nada en segundo plano</b></summary>
+<summary><b>I'd rather not have anything running in the background</b></summary>
 
 <br>
 
-Usa el perfil **PowerShell · Abyss Tide (solo shader)**: tiene agua animada por shader, pero sin interacción ni peces.
+Use the **PowerShell · Abyss Tide (shader only)** profile: it has shader-animated water, but no interaction or fish.
 
 </details>
 
 ---
 
 <div align="center">
-<sub>Hecho con mucha agua y un poco de física · <code>~≈~≈~ ><> ~≈~≈~</code></sub>
+<sub>Made with lots of water and a little physics · <code>~≈~≈~ ><> ~≈~≈~</code></sub>
 </div>
